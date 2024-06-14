@@ -136,11 +136,18 @@ const ServiceItem = ({
         return bookingHour === timeHour && bookingMinutes === timeMinutes;
       });
 
-      if (!booking) {
-        return true;
+      const currentHour = new Date().getHours();
+      const currentDate = new Date().toDateString();
+
+      if (
+        (new Date(date).toDateString() === currentDate &&
+          timeHour <= currentHour) ||
+        booking
+      ) {
+        return false;
       }
 
-      return false;
+      return true;
     });
   }, [date, dayBookings]);
 
