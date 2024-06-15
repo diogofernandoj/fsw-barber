@@ -19,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} dark flex flex-col gap-8`}>
+      <body className={`${inter.className} dark h-screen flex flex-col`}>
         <AuthProvider>
-          {children}
+          <div className="flex-1">{children}</div>
           <Toaster />
           <Footer />
         </AuthProvider>
